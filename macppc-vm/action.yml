@@ -59,7 +59,7 @@ runs:
         chmod 700 ~/.ssh
         cat > ~/.ssh/config <<EOL
         Host macppc
-            User macuser
+            User ${{ inputs.user }}
             HostName localhost
             Port 5555
             KexAlgorithms diffie-hellman-group-exchange-sha1,diffie-hellman-group1-sha1
