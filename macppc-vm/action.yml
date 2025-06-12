@@ -116,8 +116,8 @@ runs:
           local HOST="macppc"
           local INTERVAL=10
           while true; do
-            if ! ssh -o ConnectTimeout=5 "root@$HOST" date ; then
-              echo "Waiting for SSH to become available on $HOST..."
+            if ! ssh -o ConnectTimeout=5 "${{ inputs.user }}@$HOST" date &> /dev/null ; then
+              echo "Waiting for SSH to become available for ${{ inputs.user }}@$HOST"
               sleep $INTERVAL
             else
               echo "SSH is now available on $HOST."
