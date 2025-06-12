@@ -11,4 +11,4 @@ runs:
   using: composite
   steps:
     - if: ${{ inputs.action == 'macppc-vm' }}
-      uses: ./macppc-vm.yml
+      uses: ./macppc-vm
