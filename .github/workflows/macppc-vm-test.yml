@@ -11,6 +11,4 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
-    - uses: ./
-      with:
-        action: macppc-vm
+    - uses: ./macppc-vm
