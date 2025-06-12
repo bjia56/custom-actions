@@ -110,6 +110,7 @@ runs:
         chmod 400 ~/.ssh/id_rsa.macppc
 
     - name: Wait for VM
+      shell: bash
       run: |
         wait_for_ssh() {
           local HOST="macppc"
