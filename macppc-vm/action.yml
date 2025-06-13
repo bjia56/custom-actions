@@ -115,7 +115,7 @@ runs:
         mkdir -p ~/.local/bin
         cat > ~/.local/bin/macppc << EOL
         #!/usr/bin/env sh
-        ssh macppc sh<\$1
+        ssh ${{ inputs.user }}@macppc sh -l<\$1
         EOL
         chmod +x ~/.local/bin/macppc
 
