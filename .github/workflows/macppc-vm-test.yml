@@ -12,3 +12,51 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./macppc-vm
+
+  test_file_copy:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - run: |
+        echo 'helloworld' > /tmp/hello.txt
+    - uses: ./macppc-vm
+      with:
+        commands: |
+          test `cat hello.txt` = 'helloworld'
+        prerun_copy_from: /tmp/hello.txt
+        postrun_copy_from: /var/root/hello.txt
+    - run: |
+        test `cat /tmp/hello.txt` = `cat hello.txt`
+
+  test_user_root:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./macppc-vm
+      with:
+        commands: |
+          whoami
+          test `whoami` = 'root'
+        user: root
+
+  test_user_macuser:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./macppc-vm
+      with:
+        commands: |
+          whoami
+          test `whoami` = 'macuser'
+        user: macuser
+        
+  test_custom_shell:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./macppc-vm
+    - shell: macppc {0}
+      run: |
+        whoami
+        uname -a
+        date
