@@ -70,7 +70,7 @@ runs:
         EOL
         chmod 600 ~/.ssh/config
 
-        echo | base64 -d > ~/.ssh/id_rsa.macppc <<EOL
+        cat <<EOL | base64 -d > ~/.ssh/id_rsa.macppc
         LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb1FJQkFBS0NBUUVBdC93MXQ5bGNP
         YWJKb0Q4RSsvYjRqUGdrY2ZVY1pCL0J0UHFEWnlTSmh0SGJIalZkCkhrYVlqMjBrejVXM0UzdVpn
         VnpxdFR3T2JDTURTbHhzUVFxckJxaG5PWXBVREpkV095RXk2SHIrSDVMTHNvaGsKbkZVb1FsUWZp
