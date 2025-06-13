@@ -109,9 +109,21 @@ runs:
         EOL
         chmod 400 ~/.ssh/id_rsa.macppc
 
+    - name: Install custom shell
+      shell: bash
+      run: |
+        # Install custom shell
+        mkdir -p ~/.local/bin
+        cat > ~/.local/bin/macppc << EOL
+        #!/usr/bin/env sh
+        ssh macppc sh<\$1
+        EOL
+        chmod +x ~/.local/bin/macppc
+
     - name: Wait for VM
       shell: bash
       run: |
+        # Wait for VM
         wait_for_ssh() {
           local HOST="macppc"
           local INTERVAL=10
