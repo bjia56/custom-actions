@@ -18,7 +18,7 @@ inputs:
   prerun_copy_to:
     description: Path on the VM to copy files to, before commands are executed
     required: false
-    default: /Users/root
+    default: /var/root
   postrun_copy_from:
     description: Path on the VM to copy to the host, after commands are executed
     required: false
