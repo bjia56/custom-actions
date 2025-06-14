@@ -24,7 +24,7 @@ jobs:
         commands: |
           test `cat hello.txt` = 'helloworld'
         prerun_copy_from: /tmp/hello.txt
-        postrun_copy_from: /var/root/hello.txt
+        postrun_copy_from: /Users/macuser/hello.txt
     - run: |
         test `cat /tmp/hello.txt` = `cat hello.txt`
 
